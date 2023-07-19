@@ -1,4 +1,4 @@
 #!/usr/bin/python3
-    
-num = 99
-print("{}={}".format(num,hex(num)))
+for number in range(99):
+
+    print("{} = {}" .format(number,hex(number)))
