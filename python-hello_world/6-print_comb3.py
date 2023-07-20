@@ -7,6 +7,3 @@ for p in range(0, 9):
             print("{}{}".format(p, w))
         else:
              print("{}{}".format(p, w), end= ",")
-
-
-        
