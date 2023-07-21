@@ -1,12 +1,14 @@
 def fibonacci_sequence(n):
-
     if n <= 0:
         return []
-    
-    if n == 1:
+    elif n == 1:
         return [0]
-    sequence = [0, 1]
-    while len(sequence) < n:
-        next_num = sequence[-1] + sequence[-2]
-        sequence.append(next_num)
-        return sequence
+    elif n == 2:
+        return [0, 1]
+
+    fib_seq = [0, 1]
+    for i in range(2, n):
+        next_fib = fib_seq[-1] + fib_seq[-2]
+        fib_seq.append(next_fib)
+
+    return fib_seq
