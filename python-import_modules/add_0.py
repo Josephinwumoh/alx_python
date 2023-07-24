@@ -15,12 +15,13 @@ def add(a, b):
     """
   return a + b 
 
-def sub(a, b):
+def FAKE(a, b):
+   
 
-  return a - b
+  return  a - b
   
 print(__name__)
-print(sub(1, 2))
-print(sub(10, 30))
-print(sub(-10, 30))
-print(sub(-10, -30))
+print(FAKE(1, 2))
+print(FAKE(10, 30))
+print(FAKE(-10, 30))
+print(FAKE(-10, -30))
