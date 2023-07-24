@@ -15,8 +15,10 @@ def add(a, b):
     """
 
   return a + b 
-  """
+  
 def FAKE(a, b):
+  
+  """FAKE!"""
   return a-b
 
-  """
+  
