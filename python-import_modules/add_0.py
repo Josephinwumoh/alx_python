@@ -1,3 +1,4 @@
+#! /usr/bin/python3
 def add(a, b):
 
   """My addition function
@@ -13,6 +14,6 @@ def add(a, b):
     
     """
 
-  return a + b
-if __name__ == "__main__":
-  print('__main__')
+  return a + b 
+def FAKE(a, b):
+  return a-b
