@@ -5,7 +5,6 @@ if __name__ == "__main__":
     a = 1
     b = 2
     add(a, b)
-    print("call function")
     print("{} + {} = {}".format(a, b, add(1,2)))
 
 
