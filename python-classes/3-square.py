@@ -1,6 +1,8 @@
 """To access and update private attribute"""
 class Square:
+    """This represent area of a square"""
     def __init__(self, size=0):
+        """Size here is private instance attribute"""
         self.__size = size
 
     @property
@@ -16,4 +18,5 @@ class Square:
         self.__size = value
 
     def area(self):
+        """This return the current square area for public instance method"""
         return self.__size ** 2
