@@ -3,5 +3,6 @@
 class BaseGeometry:
 
     """The BaseGeometry print(dir(bg)) and print(dir(BaseGeometry))"""
-    def __init__(self):
+    def dir(self):
+        """The BaseGeometry is an empty class"""
         pass
