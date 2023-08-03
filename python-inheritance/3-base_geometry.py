@@ -2,21 +2,11 @@
 
 class BaseGeometry():
         """ an empty class BaseGeometry"""
-        pass
 
-class dir(BaseGeometry):
-        """Here is the override"""
+        def __dir__(cls) -> None:
+                """getting lists of all attributes for this class and exclude __init_subclass"""
+                attributes = super().__dir__()
+                return [attribute for attribute in attributes if attribute != '__init_subclass__']
 
-        def dir(self):
-                if super().__dir__ != "__init_subclass__":
-                        return self.dir
-                        
-                
 
-    
-                                
 
-               
-
-        
-        
