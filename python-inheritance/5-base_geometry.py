@@ -24,8 +24,8 @@ class BaseGeometry(metaclass=AMetaClass):
         """Raise an exception that area is not implemented"""
         raise Exception("area() is not implemented")
     
-           
-    def __dir__(cls) -> None:
+          
+    def __dir__(cls) -> area:
                 """Removing __init_subclass"""
                 attributes = super().__dir__()
                 return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
