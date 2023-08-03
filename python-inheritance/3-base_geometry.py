@@ -10,7 +10,7 @@ class BaseGeometry:
 
                 J_attributes = []
                 for attr in attributes:
-                        if attr != "__init__Subclass":
+                        if attr != "__init_Subclass__":
                                 J_attributes.append(attr)
                                 
                 return J_attributes
