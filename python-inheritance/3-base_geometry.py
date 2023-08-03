@@ -1,6 +1,4 @@
 """BaseGeometry module with an empty class"""
-from collections.abc import Iterable
-
 
 class BaseGeometry():
         """ an empty class BaseGeometry"""
@@ -9,8 +7,11 @@ class BaseGeometry():
 class dir(BaseGeometry):
         """Here is the override"""
 
-        def __dir__(self) -> Iterable[str]:
-                return super().__dir__()
+        def dir(self):
+                if super().__dir__ != "__init_subclass__":
+                        return self.dir
+                        
+                
 
     
                                 
