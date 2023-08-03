@@ -16,7 +16,7 @@ class BaseGeometry(metaclass=AMetaClass):
                 attributes = super().__dir__()
                 return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
         
-class BaseGeometry:
+class BaseGeometry(metaclass=AMetaClass):
 
     """This shows public instance Method"""
 
