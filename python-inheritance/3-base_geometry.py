@@ -1,18 +1,18 @@
 """BaseGeometry module with an empty class"""
+from collections.abc import Iterable
+
+
 class BaseGeometry():
         """ an empty class BaseGeometry"""
+        pass
 
-        def __dir__(cls) -> None:
-                
-                """get rid of all attributes for this class and exclude __init__subclass"""
+class dir(BaseGeometry):
+        """Here is the override"""
 
-                attributes = super().__dir__()
-                J_attributes = []
-                for attr in attributes:
-                        if attr != "__init_Subclass__":
-                                J_attributes.append(attr)
-                                pass   
-                return J_attributes
+        def __dir__(self) -> Iterable[str]:
+                return super().__dir__()
+
+    
                                 
 
                
