@@ -16,20 +16,7 @@ class BaseGeometry(metaclass=AMetaClass):
                 attributes = super().__dir__()
                 return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
         
-class BaseGeometry(metaclass=AMetaClass):
-
-    """This shows public instance Method"""
-
-    def area(self):
-        """Raise an exception that area is not implemented"""
-        raise Exception("area() is not implemented")
-    
-          
-    def __dir__(cls) -> area:
-                """Removing __init_subclass"""
-                attributes = super().__dir__()
-                return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
-        
+     
 class BaseGeometry(metaclass=AMetaClass):
     """Public instance method that raise an Exception"""
     
@@ -40,6 +27,15 @@ class BaseGeometry(metaclass=AMetaClass):
         if value <= 0:
             raise ValueError("{} must be greater than 0".format(name))
         
+    def __dir__(cls) -> None:
+                """Removing __init_subclass"""
+                attributes = super().__dir__()
+                return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
+
+    def area(self):
+        """Raise an exception that area is not implemented"""
+        raise Exception("area() is not implemented")
+    
     def __dir__(cls) -> None:
                 """Removing __init_subclass"""
                 attributes = super().__dir__()
