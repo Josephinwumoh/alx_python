@@ -18,10 +18,6 @@ class BaseGeometry(metaclass=AMetaClass):
         
 class BaseGeometry(metaclass=AMetaClass):
     """Public instance method that raise an Exception"""
-
-    def Area(self):
-        """This raise an exception"""
-        raise Exception("area() is not implemented")
     
     def integer_validator(self, name, value):
         """This is an integer validator that assign value"""
