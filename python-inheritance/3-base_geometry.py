@@ -1,7 +1,6 @@
 """Geometry module with an empty class"""
 
 class BaseGeometry:
-    """An empty class"""
-    pass
+    
+    """The BaseGeometry has an empty class"""
 
-bg = BaseGeometry()
