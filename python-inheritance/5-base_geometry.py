@@ -17,6 +17,20 @@ class BaseGeometry(metaclass=AMetaClass):
                 return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
         
 class BaseGeometry(metaclass=AMetaClass):
+
+    """This shows public instance Method"""
+
+    def area(self):
+        """Raise an exception that area is not implemented"""
+        raise Exception("area() is not implemented")
+    
+           
+    def __dir__(cls) -> None:
+                """Removing __init_subclass"""
+                attributes = super().__dir__()
+                return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
+        
+class BaseGeometry(metaclass=AMetaClass):
     """Public instance method that raise an Exception"""
     
     def integer_validator(self, name, value):
