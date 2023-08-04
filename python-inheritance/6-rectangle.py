@@ -35,12 +35,18 @@ class BaseGeometry(metaclass=AMetaClass):
                 """Removing __init_subclass"""
                 attributes = super().__dir__()
                 return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
+    
+class BaseGeometry:
+       """Public instance method that raise an Exception"""
+       pass
 
-class Rectangle(BaseGeometry,metaclass=AMetaClass):
+class Rectangle(BaseGeometry):
         """A rectangle with width and height"""
 
         def __init__(self, width, height):
                 """The width and height integers of the rectangle"""
+                self.__width = 0
+                self.__height = 0
                 self.integer_validator = ("width", width)
                 self.integer_validator = ("height", height)
                 self.__width = width
@@ -55,6 +61,8 @@ class Rectangle(BaseGeometry,metaclass=AMetaClass):
             """This is an integer validator that assign value"""
             if not isinstance(value, int):
              raise TypeError("{} must be an integer".format(name))
+            if value <= 0:
+             raise ValueError("{} must be greater than 0".format(name)) 
             
 
                 
