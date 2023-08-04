@@ -1,6 +1,7 @@
 """This is a Full Rectangle that inherit from BaseGeometry
 """
 
+
 class AMetaClass(type):
         """ A Meta class with all the attributes"""
 
@@ -8,6 +9,7 @@ class AMetaClass(type):
                 """Removing __init_subclass"""
                 attributes = super().__dir__()
                 return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
+        
 
 class BaseGeometry(metaclass=AMetaClass):
         """ an empty class BaseGeometry"""
@@ -16,6 +18,7 @@ class BaseGeometry(metaclass=AMetaClass):
                 """Removing __init_subclass"""
                 attributes = super().__dir__()
                 return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
+
         
 class Rectangle(BaseGeometry):
         """A rectangle with width and height"""
@@ -29,18 +32,18 @@ class Rectangle(BaseGeometry):
                 self.__width = width
                 self.__height = height
                
-        
-        def integer_validator(self, name, value):
-            """This is an integer validator that assign value"""
-            if not isinstance(value, int):
-             raise TypeError("{} must be an integer".format(name))
-            if value <= 0:
-             raise ValueError("{} must be greater than 0".format(name)) 
+                def integer_validator(self, name, value):
+                 """This is an integer validator that assign value"""
+                if not isinstance(value, int):
+                 raise TypeError("{} must be an integer".format(name))
+                if value <= 0:
+                 raise ValueError("{} must be greater than 0".format(name)) 
             
         def __dir__(cls) -> None:
                 """Removing __init_subclass"""
                 attributes = super().__dir__()
                 return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
+        
             
 class BaseGeometry(metaclass=AMetaClass):
     """Public instance method that raise an Exception"""
@@ -48,16 +51,17 @@ class BaseGeometry(metaclass=AMetaClass):
     def area(self):
         """Raise an exception that area is not implemented"""
         raise Exception("area() is not implemented")
-    
-    def integer_validator(self, name, value):
-            """This is an integer validator that assign value"""
-            if not isinstance(value, int):
-             raise TypeError("{} must be an integer".format(name))
-            if value <= 0:
-             raise ValueError("{} must be greater than 0".format(name)) 
+
+        def integer_validator(self, name, value):
+         """This is an integer validator that assign value"""
+        if not isinstance(value, int):
+         raise TypeError("{} must be an integer".format(name))
+        if value <= 0:
+         raise ValueError("{} must be greater than 0".format(name)) 
     
     def __dir__(cls) -> None:
                 """Removing __init_subclass"""
+
                 attributes = super().__dir__()
                 return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
 
@@ -72,17 +76,17 @@ class Rectangle(BaseGeometry):
                 self.integer_validator("height", height)
                 self.__width = width
                 self.__height = height
-               
-        
-        def integer_validator(self, name, value):
-            """This is an integer validator that assign value"""
-            if not isinstance(value, int):
-             raise TypeError("{} must be an integer".format(name))
-            if value <= 0:
-             raise ValueError("{} must be greater than 0".format(name)) 
+
+                def integer_validator(self, name, value):
+                 """This is an integer validator that assign value"""
+                if not isinstance(value, int):
+                 raise TypeError("{} must be an integer".format(name))
+                if value <= 0:
+                 raise ValueError("{} must be greater than 0".format(name)) 
             
         def __dir__(cls) -> None:
                 """Removing __init_subclass"""
+
                 attributes = super().__dir__()
                 return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
         
@@ -92,14 +96,14 @@ class BaseGeometry(metaclass=AMetaClass):
     def area(self):
         """Raise an exception that area is not implemented"""
         raise Exception("area() is not implemented")
-    
-    def integer_validator(self, name, value):
-            """This is an integer validator that assign value"""
-            if not isinstance(value, int):
-             raise TypeError("{} must be an integer".format(name))
-            if value <= 0:
-             raise ValueError("{} must be greater than 0".format(name)) 
-    
+
+        def integer_validator(self, name, value):
+         """This is an integer validator that assign value"""
+        if not isinstance(value, int):
+         raise TypeError("{} must be an integer".format(name))
+        if value <= 0:
+         raise ValueError("{} must be greater than 0".format(name))
+
     def __dir__(cls) -> None:
                 """Removing __init_subclass"""
                 attributes = super().__dir__()
