@@ -86,7 +86,7 @@ class Rectangle(BaseGeometry):
                 attributes = super().__dir__()
                 return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
         
-class Rectangle(BaseGeometry):
+class BaseGeometry(Rectangle):
       """A subclass"""
       def __init__(self, width, height):
                 """The width and height integers of the rectangle"""
