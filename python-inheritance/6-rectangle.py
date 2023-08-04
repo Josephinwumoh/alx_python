@@ -43,24 +43,19 @@ class Rectangle(BaseGeometry,metaclass=AMetaClass):
                 """The width and height integers of the rectangle"""
                 self.integer_validator = ("width", width)
                 self.integer_validator = ("height", height)
-                self.width = width
-                self.height = height
-                
-        def __str__(self):
-                "Return the string of the Rectangle"
-                return ("self.width, self.height")
-        
-        def integer_validator(self, name, value):
-            """This is an integer validator that assign value"""
-            if not isinstance(value, int):
-             raise TypeError("{} must be an integer".format(name))
-            if value <= 0:
-             raise ValueError("{} must be greater than 0".format(name))
+                self.__width = width
+                self.__height = height
         
         def __dir__(cls) -> None:
                 """Removing __init_subclass"""
                 attributes = super().__dir__()
                 return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
+        
+        def integer_validator(self, name, value):
+            """This is an integer validator that assign value"""
+            if not isinstance(value, int):
+             raise TypeError("{} must be an integer".format(name))
+            
 
                 
         
