@@ -17,7 +17,7 @@ class BaseGeometry(metaclass=AMetaClass):
                 attributes = super().__dir__()
                 return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
         
-class Rectangle(BaseGeometry):
+class Rectangle:
         """A rectangle with width and height"""
 
         def __init__(self, width, height):
@@ -85,6 +85,9 @@ class Rectangle(BaseGeometry):
                 """Removing __init_subclass"""
                 attributes = super().__dir__()
                 return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
+            
+        
+
             
 
                 
