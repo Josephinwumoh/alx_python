@@ -52,6 +52,11 @@ class Rectangle(BaseGeometry):
             if value <= 0:
              raise ValueError("{} must be greater than 0".format(name)) 
             
+        def __dir__(cls) -> None:
+                """Removing __init_subclass"""
+                attributes = super().__dir__()
+                return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
+            
 
                 
         
