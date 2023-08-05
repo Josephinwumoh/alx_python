@@ -9,7 +9,7 @@ class AMetaClass(type):
                 """Removing __init_subclass"""
                 attributes = super().__dir__()
                 return [attribute for attribute in super().__dir__()
-                 if attribute != '__init_subclass__']
+if attribute != '__init_subclass__']
 
 
 
