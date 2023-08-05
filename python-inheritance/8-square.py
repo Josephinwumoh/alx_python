@@ -1,5 +1,4 @@
-"""This is a Full Rectangle 
-   that inherit from BaseGeometry
+"""This is a Full Rectangle that inherit from BaseGeometry
 """
 
 
