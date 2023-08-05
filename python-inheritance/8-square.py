@@ -2,7 +2,7 @@
 
 Rectangle = __import__('7-rectangle').Rectangle
 """The file Rectangle from 7-rectangle"""
-class Square(Rectangle):
+  class Square(Rectangle):
         """The square of the Rectangle"""
         def __init__(self, size):
                 """The width and height integers of the rectangle"""
