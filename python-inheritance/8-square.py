@@ -145,19 +145,3 @@ class Square(Rectangle):
      def __str__(self):
           """Return the Rectangle string"""
           return f"[Rectangle] {self.__size}/{self.__size}"
-
-
-
-          
-
-            
-     
-
-
-            
-        
-
-            
-
-                
-        
