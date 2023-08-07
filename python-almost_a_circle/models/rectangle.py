@@ -111,3 +111,15 @@ class Rectangle(Base):
             self.x = args[3]
         if num_args > 4:
             self.y = args[4]
+
+    def update(self, *args, **kwargs):
+        """Public method args, kwargs.
+        “key-worded argument”.
+        Argument order is not important."""
+        if args:
+            attributes = ['id', 'width', 'height', 'x', 'y']
+            for i, arg in enumerate(args):
+                setattr(self, attributes[i], arg)
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
