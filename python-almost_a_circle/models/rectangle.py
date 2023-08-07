@@ -1,5 +1,4 @@
 """The file Rectangle inherit from Base"""
-# models/rectangle.py
 
 from models.base import Base
 
