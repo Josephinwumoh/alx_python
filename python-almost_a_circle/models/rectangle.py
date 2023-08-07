@@ -21,7 +21,7 @@ class Rectangle(Base):
     @width.setter
     def width(self, value):
         """The private instance attributes width with setter method"""
-        if not isinstance(value, int):
+        if type(value) != int:
             raise TypeError("Width must be an integer")
         if value <= 0:
             raise ValueError("Width must be > 0")
@@ -35,7 +35,7 @@ class Rectangle(Base):
     @height.setter
     def height(self, value):
         """The private instance attributes height with setter method"""
-        if not isinstance(value, int):
+        if type(value) != int:
             raise TypeError("Height must be an integer")
         if value <= 0:
             raise ValueError("Height must be > 0")
@@ -49,7 +49,7 @@ class Rectangle(Base):
     @x.setter
     def x(self, value):
         """The private instance attributes x with setter method"""
-        if not isinstance(value, int):
+        if type(value) != int:
             raise TypeError("x must be an integer")
         if value < 0:
             raise ValueError("x must be >= 0")
@@ -63,7 +63,7 @@ class Rectangle(Base):
     @y.setter
     def y(self, value):
         """The private instance attributes y with setter method"""
-        if not isinstance(value, int):
+        if type(value) != int:
             raise TypeError("y must be an integer")
         if value < 0:
             raise ValueError("y must be >= 0")
