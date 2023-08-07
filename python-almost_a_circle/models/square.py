@@ -11,3 +11,14 @@ class Square(Rectangle):
 
     def __str__(self):
         return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.width)
+    
+    @property
+    def size(self):
+        """The getter and setter attributes width."""
+        return self.width
+
+    @size.setter
+    def size(self, value):
+        """The private instance attributes width with setter method"""
+        self.width = value
+        self.height = value
