@@ -1,15 +1,15 @@
 #!/usr/bin/python3
-"""The models base file module"""
+"""The mmodels base file"""
 
 class Base:
-    """The base class"""
+    """The Base Class """
     __nb_objects = 0
 
     def __init__(self, id=None):
-        """The class Constructor method"""
+        """The class Constructor Method"""
+
         if id is not None:
             self.id = id
         else:
             Base.__nb_objects += 1
-            self.id = Base.__nb_objects
-
+            self.id = Base.__nb_objects 
