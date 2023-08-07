@@ -96,3 +96,18 @@ class Rectangle(Base):
             print()
         for _ in range(self.__height):
             print( ' ' *  self.__x  +  '#'  *  self.__width)
+
+    def update(self, *args):
+        """Public method args. “no-keyword argument”
+        - Argument order is super important."""
+        num_args =len(args)
+        if num_args > 0:
+            self.id = args[0]
+        if num_args > 1:
+            self.width = args[1]
+        if num_args > 2:
+            self.height = args[2]
+        if num_args > 3:
+            self.x = args[3]
+        if num_args > 4:
+            self.y = args[4]
