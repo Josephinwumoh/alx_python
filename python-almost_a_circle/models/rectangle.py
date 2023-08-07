@@ -12,6 +12,7 @@ class Rectangle(Base):
         self.x = x
         self.y = y
 
+
     @property
     def width(self):
         """The return attributes width with getter method"""
@@ -67,3 +68,8 @@ class Rectangle(Base):
         if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
+
+    def area(self):
+        """The area must be implemented"""
+        return self.__width * self.__height
+
