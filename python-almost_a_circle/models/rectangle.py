@@ -6,17 +6,17 @@ from models.base import Base
 class Rectangle(Base):
     """The Class Rectangle inherits from parent Base"""
     def __init__(self, width, height, x=0, y=0, id=None):
-        """The Class Constructor"""
-        super().__init__(id)
+        """The Class Constructor"""        
         self.width = width
         self.height = height
         self.x = x
         self.y = y
+        super().__init__(id)
 
 
     @property
     def width(self):
-        """The return attributes width with getter method"""
+        """The getter and setter attributes width."""
         return self.__width
 
     @width.setter
@@ -30,7 +30,7 @@ class Rectangle(Base):
 
     @property
     def height(self):
-        """The return attributes height with getter method"""
+        """The getter and setter attributes height."""
         return self.__height
 
     @height.setter
@@ -44,7 +44,7 @@ class Rectangle(Base):
 
     @property
     def x(self):
-        """The return attributes x with getter method"""
+        """The getter and setter attributes x."""
         return self.__x
 
     @x.setter
@@ -58,7 +58,7 @@ class Rectangle(Base):
 
     @property
     def y(self):
-        """The return attributes y with getter method"""
+        """The getter and setter attributes y."""
         return self.__y
 
     @y.setter
