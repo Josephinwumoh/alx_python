@@ -72,4 +72,9 @@ class Rectangle(Base):
     def area(self):
         """The area must be implemented"""
         return self.__width * self.__height
+    
+    def display(self):
+        """Display the character #"""
+        for _ in range(self.__height):
+            print('#' * self.__width)
 
