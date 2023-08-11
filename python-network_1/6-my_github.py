@@ -5,13 +5,12 @@ and uses the GitHub API to display your id"""
 
 import requests
 import sys
-import os
 
 def main():
     """The method use to get my GitHub credentials
     (username and password)"""
     if len(sys.argv) != 3:
-        print("Usage: python 6-my_github.py papamuziko ghp_4DUgr0uHZxO9y2")
+        print("Usage: python 6-my_github.py Josephinwumoh ghp_4gr0uHZxO9y2j")
         return
     username = sys.argv[1]
     token = sys.argv[2]
