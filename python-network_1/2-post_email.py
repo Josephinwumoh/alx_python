@@ -10,7 +10,7 @@ def main():
     """The method use to get the URL
     an email"""
     if len(sys.argv) != 3:
-        print("Usage: ./2-post_email.py https://intranet.hbtn.io hr@holbertonschool.com")
+        print("Usage: python 2-post_email.py https://intranet.hbtn.io hr@holbertonschool.com")
         return
     
     url = sys.argv[1]
