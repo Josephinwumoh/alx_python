@@ -18,15 +18,12 @@ def main():
     url = f"https://api.github.com/user"
     response = requests.get(url, auth=(username, token))
     
-    try:
-        data = response.json()
-        if "id" in data:
-            print("id")
-        else:
-            print("None")
+    if response.status_code == 200:
+        user_data = response.json()
+        print(user_data['id'])
 
-    except ValueError:
-        print("Invalid response")
+    else:
+        print("None")
 
 if __name__ == "__main__":
     main()
