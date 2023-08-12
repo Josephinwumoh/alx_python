@@ -18,8 +18,5 @@ def main():
         x_request_id = response.headers.get['X-Request-Id']
         print(x_request_id)
 
-    else:
-        print("X-Request-Id not found in response header")
-
 if __name__ == "__main__":
     main()
