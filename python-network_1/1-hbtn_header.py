@@ -8,9 +8,8 @@ import sys
 def main():
     """The method use to get the header value"""
     if len(sys.argv) != 2:
-        print("Usage: pyton 1-hbtn_header.py https://alu-intranet.hbtn.io/status")
+        print("Usage: pyton 1-hbtn_header.py https://intranet.hbtn.io")
         return
-    
     
     url = sys.argv[1]
     response = requests.get(url)
