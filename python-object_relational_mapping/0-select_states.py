@@ -13,10 +13,10 @@ def list_states(username, password, database):
     cursor.execute("SELECT * FROM states ORDER BY id ASC")
 
     """fetch all the results"""
-    results = cursor.fetchall()
+    rows = cursor.fetchall()
 
-    """print the row"""
-    for row in results:
+    """print the results"""
+    for row in rows:
         print(row)
 
     """Close the database"""
