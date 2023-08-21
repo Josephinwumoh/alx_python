@@ -6,7 +6,7 @@ import sys
 
 if __name__ == "__main__":
     if len(sys.argv) != 4:
-        print("Usage: {} <Gerald> <password> <database>".format(sys.argv[0]))
+        print("Usage: {} <Gerald> <password> <hbtn_0e_0_usa>".format(sys.argv[0]))
         sys.exit(1)
 
     username = sys.argv[1]
@@ -19,7 +19,7 @@ if __name__ == "__main__":
             port = 3306,
             user = "Gerald",
             passwd = password,
-            db = database
+            db = "hbtn_0e_0_usa"
         )
         cursor = db.cursor()
         cursor.execute("SELECT * FROM states ORDER BY id ASC")
@@ -27,7 +27,7 @@ if __name__ == "__main__":
         for state in states:
             print(state)
     except MySQLdb.Error as e:
-        print("Error connecting to the database:", e)
+        print("Error connecting to the db:", e)
     finally:
         if db:
             db.close()
