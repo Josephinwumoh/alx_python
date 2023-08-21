@@ -6,7 +6,7 @@ import sys
 def list_states(username, password, database):
 
     """Connect to the MySQL server"""
-    db = MySQLdb.connect(host = "localhost", port = 3306, user = "man" passwd = "password", db = "database")
+    db = MySQLdb.connect(host = "localhost", port = 3306, user = "man" passwd = "password", db = database)
     cursor = db.cursor()
 
     """Execute the SQL query"""
@@ -20,7 +20,6 @@ def list_states(username, password, database):
         print(row)
 
     """Close the database"""
-    cursor.close()
     db.close()
 
 """Now Usage"""
