@@ -3,31 +3,22 @@
 import MySQLdb
 import sys
 
-
+def list_states(username, password, database):
+    """Connect to the MySQL server"""
+    db = MySQLdb.connect(host = 'localhost', port = 3306, user = 'man', passwd = 'password', db = database)
+    cursor = db.cursor()
+    """Execute the SQL query"""
+    cursor.execute("SELECT * FROM states ORDER BY id ASC")
+    """fetch the row"""
+    rows = cursor.fetchall()
+    """print the row"""
+    for row in rows:
+        print(row)
+    
+    """Close the database"""
+    db.close()
+"""Now Usage"""
 if __name__ == "__main__":
-    if len(sys.argv) != 4:
-        print("Usage: {} <Gerald> <password> <database>".format(sys.argv[0]))
-        sys.exit(1)
-
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
-
-    try:
-        db = MySQLdb.connect(
-            host = "localhost",
-            port = 3306,
-            user = "Gerald",
-            passwd = password,
-            db = "database"
-        )
-        cursor = db.cursor()
-        cursor.execute("SELECT * FROM states ORDER BY id ASC")
-        states = cursor.fetchall()
-        for state in states:
-            print(state)
-    except MySQLdb.Error as e:
-        print("Error connecting to the db:", e)
-    finally:
-        if db:
-            db.close()
