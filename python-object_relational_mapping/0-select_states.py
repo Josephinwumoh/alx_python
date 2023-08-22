@@ -10,7 +10,7 @@ def list_states(username, password, database):
     cursor = db.cursor()
 
     """Execute the SQL query"""
-    cursor.execute("INSERT INTO states (name) VALUES ("California"), ("Arizona") ORDER BY id ASC")
+    cursor.execute("SELECT * FROM states ORDER BY id ASC")
 
     """fetch all the results"""
     rows = cursor.fetchall()
