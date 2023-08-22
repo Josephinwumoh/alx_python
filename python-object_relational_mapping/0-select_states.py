@@ -8,7 +8,7 @@ import MySQLdb
 
 if __name__ == "__main__":
     if len(sys.argv) != 4:
-        print("Usage: {} mouse password database".format(sys.argv[0]))
+        print("Usage: {} mouse password hbtn_0e_0_usa".format(sys.argv[0]))
         sys.exit(1)
 
     username = sys.argv[1]
@@ -20,7 +20,7 @@ if __name__ == "__main__":
         port=3306,
         user="mouse",
         passwd=password,
-        db=database
+        db="hbtn_0e_0_usa"
     )
 
     cursor = db.cursor()
