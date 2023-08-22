@@ -21,6 +21,7 @@ def list_states(username, password, database):
 
     """Close the database"""
     db.close()
+    return db
 
 """Now Usage"""
 if __name__ == "__main__":
