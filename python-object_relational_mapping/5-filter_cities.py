@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""A module that lists cities of a specific state from the database hbtn_0e_4_usa"""
+"""A module that lists cities
+of a specific state from the database hbtn_0e_4_usa"""
 
 import MySQLdb
 import sys
