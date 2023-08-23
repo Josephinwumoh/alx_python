@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""A module that filters and displays values from the states table (safe from SQL injection)"""
+"""A module that filters and displays values
+    from the states table (safe from SQL injection)"""
 
 import MySQLdb
 import sys
@@ -9,13 +10,13 @@ if __name__ == "__main__":
     if len(sys.argv) != 5:
         print("Usage: {} <mysql username> <mysql password> <database name> <state name>".format(sys.argv[0]))
         sys.exit(1)
-    
+
     # Get arguments
     mouse = sys.argv[1]
     password = sys.argv[2]
     hbtn_0e_0_usa = sys.argv[3]
     state_name = sys.argv[4]
-    
+
     try:
         # Connect to MySQL server
         db = MySQLdb.connect(host='localhost',
@@ -27,8 +28,9 @@ if __name__ == "__main__":
         cursor = db.cursor()
 
         # Prepare the SQL query with parameterized input
-        query = "SELECT * FROM states WHERE name LIKE BINARY %s ORDER BY id ASC"
-
+        query = (
+            "SELECT * FROM states WHERE name LIKE BINARY %s ORDER BY id ASC"
+        )
         # Execute the SQL query with the parameter
         cursor.execute(query, (state_name,))
 
