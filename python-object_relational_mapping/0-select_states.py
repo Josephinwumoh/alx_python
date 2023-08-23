@@ -6,9 +6,9 @@ import sys
 
 
 """Connect to the MySQL server"""
-db = MySQLdb.connect(host="localhost",
-                     port=3306, user="mouse",
-                     passwd="password", db="hbtn_0e_0_usa")
+db = MySQLdb.connect(host=localhost,
+                     port=3306, user=mouse,
+                     passwd=password, db=hbtn_0e_0_usa)
 cursor= db.cursor()
 
 """Execute the SQL query"""
