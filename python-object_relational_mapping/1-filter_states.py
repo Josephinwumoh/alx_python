@@ -34,8 +34,8 @@ if __name__ == "__main__":
 
         SELECT *
         FROM states
-        ORDER BY id
-
+        WHERE name LIKE "N%"
+        ORDER BY state.id ASC
     """
 
     # Execute the query
