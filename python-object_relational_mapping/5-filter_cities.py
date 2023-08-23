@@ -7,7 +7,14 @@ import sys
 if __name__ == "__main__":
     # Check if all arguments are provided
     if len(sys.argv) != 5:
-        print("Usage: {} <mysql username> <mysql password> <database name> <state name>".format(sys.argv[0]))
+        print(
+
+            """
+
+            Usage:./1-filter_states.py
+            <mysql_username> <mysql_password>
+            <database_name>
+""")
         sys.exit(1)
 
     # Get arguments
@@ -27,11 +34,13 @@ if __name__ == "__main__":
         cursor = db.cursor()
 
         # Prepare the SQL query with parameterized input
-        query = """SELECT cities.name
-                   FROM cities
-                   INNER JOIN states ON cities.state_id = states.id
-                   WHERE states.name = %s
-                   ORDER BY cities.id ASC"""
+        query = """
+                SELECT cities.name
+                FROM cities
+                INNER JOIN states ON cities.state_id = states.id
+                WHERE states.name = %s
+                ORDER BY cities.id ASC
+                """
 
         # Execute the SQL query with the parameter
         cursor.execute(query, (state_name,))
