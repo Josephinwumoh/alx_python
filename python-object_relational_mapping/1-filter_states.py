@@ -24,30 +24,36 @@ if __name__ == "__main__":
     password = sys.argv[2]
     hbtn_0e_0_usa = sys.argv[3]
 
-    # Connect to MySQL server
-    db = MySQLdb.connect(host="localhost",
-                         port=3306, user=mouse,
-                         passwd=password,
-                         db=hbtn_0e_0_usa)
-    cursor = db.cursor()
+    try:
 
-    # Query to select states starting with 'N' (case Sensitive)
-    query = """
+        # Connect to MySQL server
+        db = MySQLdb.connect(host="localhost",
+                             port=3306, user=mouse,
+                             passwd=password,
+                             db=hbtn_0e_0_usa)
+        cursor = db.cursor()
+
+        # Query to select states starting with 'N' (case Sensitive)
+        query = """
 
         SELECT *
         FROM states
-        WHERE name LIKE "N%"
+        WHERE name LIKE 'N%'
         ORDER BY id ASC;
-    """
+        """
 
-    # Execute the query
-    cursor.execute(query)
+        # Execute the query
+        cursor.execute(query)
 
-    # Fetch and display the results
-    results = cursor.fetchall()
-    for row in results:
-        print(row)
+        # Fetch and display the results
+        results = cursor.fetchall()
+        for row in results:
+            print(row)
 
-    # Close the cursor and connection
-    cursor.close()
-    db.close()
+        # Close the cursor and connection
+        cursor.close()
+        db.close()
+
+    except MySQLdb.Error as e:
+        print("MySQL Error: {}".format(e))
+        sys.exit(1)
