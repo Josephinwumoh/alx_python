@@ -34,7 +34,7 @@ if __name__ == "__main__":
 
         SELECT *
         FROM states
-        WHERE lower(name) LIKE 'n%'
+        WHERE name LIKE BINARY %n
         ORDER BY id ASC
 
     """
