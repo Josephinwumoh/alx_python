@@ -18,28 +18,31 @@ if __name__ == "__main__":
     
     try:
         # Connect to MySQL server
-        db = MySQLdb.connect(host="localhost", port=3306, user=mouse, passwd=password, db=hbtn_0e_0_usa)
-        
+        db = MySQLdb.connect(host='localhost',
+                             port=3306, user=mouse,
+                             passwd=password,
+                             db=hbtn_0e_0_usa)
+
         # Create a cursor object to interact with the database
         cursor = db.cursor()
-        
+
         # Prepare the SQL query with parameterized input
         query = "SELECT * FROM states WHERE name LIKE BINARY %s ORDER BY id ASC"
-        
+
         # Execute the SQL query with the parameter
         cursor.execute(query, (state_name,))
-        
+
         # Fetch all the rows
         states = cursor.fetchall()
-        
+
         # Print the results
         for state in states:
             print(state)
-        
+
         # Close the cursor and database connection
         cursor.close()
         db.close()
-    
+
     except MySQLdb.Error as e:
         print("Error connecting to MySQL: {}".format(e))
         sys.exit(1)
