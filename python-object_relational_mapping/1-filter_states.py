@@ -5,12 +5,19 @@
 import MySQLdb
 import sys
 
+
+"""Connect to the MySQL server"""
 if __name__ == "__main__":
+    mouse = sys.argv[1]
+    password = sys.argv[2]
+    hbtn_0e_0_usa = sys.argv[3]
+
     """Getting credentials from mysql command arguments"""
 
-    db = MySQLdb.connect(user= sys.argv[1],
-                         password=sys.argv[2],
-                         db= sys.argv[3])
+    db = MySQLdb.connect(host='localhost',
+                         port=3306, user=mouse,
+                         passwd=password,
+                         db=hbtn_0e_0_usa)
 
     cursor = db.cursor()
     """Retriving all states queries by id"""
