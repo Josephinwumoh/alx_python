@@ -8,7 +8,14 @@ import sys
 if __name__ == "__main__":
     # Check if all arguments are provided
     if len(sys.argv) != 5:
-        print("Usage: {} <mysql username> <mysql password> <database name> <state name>".format(sys.argv[0]))
+        print(
+
+            """
+
+            Usage:./1-filter_states.py
+            <mysql_username> <mysql_password>
+            <database_name>
+""")
         sys.exit(1)
 
     # Get arguments
@@ -29,8 +36,13 @@ if __name__ == "__main__":
 
         # Prepare the SQL query with parameterized input
         query = (
-            "SELECT * FROM states WHERE name LIKE BINARY %s ORDER BY id ASC"
-        )
+            """
+            SELECT *
+            FROM states
+            WHERE name LIKE BINARY
+            %s ORDER BY id ASC
+        """)
+
         # Execute the SQL query with the parameter
         cursor.execute(query, (state_name,))
 
