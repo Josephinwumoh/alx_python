@@ -18,7 +18,7 @@ if __name__ == "__main__":
     
     try:
         # Connect to MySQL server
-        db = MySQLdb.connect(host="localhost", port=3306, user='mouse', passwd='password', db='hbtn_0e_4_usa')
+        db = MySQLdb.connect(host="localhost", port=3306, user=mouse, passwd=password, db=hbtn_0e_4_usa)
         
         # Create a cursor object to interact with the database
         cursor = db.cursor()
