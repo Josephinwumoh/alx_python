@@ -7,7 +7,14 @@ import sys
 if __name__ == "__main__":
     # Check if all arguments are provided
     if len(sys.argv) != 4:
-        print("Usage: {} <mysql username> <mysql password> <database name>".format(sys.argv[0]))
+        print(
+
+            """
+
+            Usage:./1-filter_states.py
+            <mysql_username> <mysql_password>
+            <database_name>
+""")
         sys.exit(1)
 
     # Get arguments
@@ -22,17 +29,20 @@ if __name__ == "__main__":
                              passwd=password,
                              db=hbtn_0e_4_usa)
 
-
         # Create a cursor object to interact with the database
+
         cursor = db.cursor()
 
         # Execute the SQL query
-        query = """SELECT cities.id, cities.name, states.name
-                   FROM cities
-                   INNER JOIN states ON cities.state_id = states.id
-                   ORDER BY cities.id ASC"""
+        query = """
+                SELECT cities.id, cities.name, states.name
+                FROM cities
+                INNER JOIN states ON cities.state_id = states.id
+                ORDER BY cities.id ASC
+                """
+
         cursor.execute(query)
-  
+
         # Fetch all the rows
         cities = cursor.fetchall()
 
