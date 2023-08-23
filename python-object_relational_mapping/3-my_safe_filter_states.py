@@ -11,14 +11,14 @@ if __name__ == "__main__":
         sys.exit(1)
     
     # Get arguments
-    username = sys.argv[1]
+    mouse = sys.argv[1]
     password = sys.argv[2]
-    db = sys.argv[3]
+    hbtn_0e_0_usa = sys.argv[3]
     state_name = sys.argv[4]
     
     try:
         # Connect to MySQL server
-        db = MySQLdb.connect(host="localhost", port=3306, user='mouse', passwd='password', db='hbtn_0e_0_usa')
+        db = MySQLdb.connect(host="localhost", port=3306, user=mouse, passwd=password, db=hbtn_0e_0_usa)
         
         # Create a cursor object to interact with the database
         cursor = db.cursor()
