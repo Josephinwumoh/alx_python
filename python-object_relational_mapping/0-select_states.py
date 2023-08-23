@@ -2,8 +2,8 @@ import MySQLdb
 
 
 db = MySQLdb.connect(host="localhost",
-                     user="mouse",
-                     passwd="password",
+                     user="root",
+                     passwd="XmenSound1^100",
                      db="hbtn_0e_0_usa")
 
 cursor = db.cursor()
