@@ -34,7 +34,7 @@ if __name__ == "__main__":
 
         SELECT *
         FROM states
-        WHERE lowercase(name) LIKE 'n%'
+        WHERE lower(name) LIKE 'n%'
         ORDER BY id ASC
 
     """
