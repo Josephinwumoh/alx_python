@@ -34,7 +34,7 @@ if __name__ == "__main__":
 
         SELECT *
         FROM states
-        WHERE id = %s
+        WHERE name LIKE %n
         ORDER BY id ASC
 
     """
