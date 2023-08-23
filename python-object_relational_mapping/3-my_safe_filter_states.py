@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Script that filters and displays values from the states table (safe from SQL injection)"""
+"""A module that filters and displays values from the states table (safe from SQL injection)"""
 
 import MySQLdb
 import sys
@@ -13,7 +13,7 @@ if __name__ == "__main__":
     # Get arguments
     username = sys.argv[1]
     password = sys.argv[2]
-    db_name = sys.argv[3]
+    db = sys.argv[3]
     state_name = sys.argv[4]
     
     try:

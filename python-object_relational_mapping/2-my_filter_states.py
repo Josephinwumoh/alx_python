@@ -11,9 +11,9 @@ if __name__ == "__main__":
         sys.exit(1)
     
     # Get arguments
-    username = sys.argv[1]
+    mouse = sys.argv[1]
     password = sys.argv[2]
-    db_name = sys.argv[3]
+    hbtn_0e_0_usa = sys.argv[3]
     state_name = sys.argv[4]
     
     try:

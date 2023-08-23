@@ -7,9 +7,9 @@ import sys
 
 """Connect to the MySQL server"""
 if __name__ =="__main__":
-    user = sys.argv[1]
-    passwd = sys.argv[2]
-    db = sys.argv[3]
+    mouse = sys.argv[1]
+    password = sys.argv[2]
+    hbtn_0e_0_usa = sys.argv[3]
     db = MySQLdb.connect(host='localhost',
                          port=3306, user='mouse',
                          passwd='password', 
