@@ -6,7 +6,7 @@ import sys
 
 
 """Connect to the MySQL server"""
-if __name__=="__main__":
+if __name__ == "__main__":
     mouse = sys.argv[1]
     password = sys.argv[2]
     hbtn_0e_0_usa = sys.argv[3]
@@ -14,13 +14,13 @@ if __name__=="__main__":
                          port=3306, user=mouse,
                          passwd=password,
                          db=hbtn_0e_0_usa)
-    cursor=db.cursor()
+    cursor = db.cursor()
 
     """Execute the SQL query"""
     cursor.execute("SELECT * FROM states ORDER BY id ASC")
 
     """fetch all the results"""
-    states=cursor.fetchall()
+    states = cursor.fetchall()
 
     """print the results"""
     for state in states:
