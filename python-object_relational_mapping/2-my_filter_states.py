@@ -42,7 +42,6 @@ if __name__ == "__main__":
             %s ORDER BY id ASC
         """)
 
-
         # Execute the SQL query
         cursor.execute(query, (state_name,))
 
