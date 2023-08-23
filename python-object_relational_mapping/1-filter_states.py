@@ -7,9 +7,9 @@ if __name__ == "__main__":
     # Check for correct number of arguments
     if len(sys.argv) != 4:
         print(
-  
+
             """
-    
+
             Usage:./1-filter_states.py
             <mysql_username> <mysql_password>
             <database_name>
