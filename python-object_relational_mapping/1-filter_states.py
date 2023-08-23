@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""A module that lists states with names starting with N from the database hbtn_0e_0_usa"""
+"""A module that lists states
+    with names starting with N from the database hbtn_0e_0_usa"""
 
 import MySQLdb
 import sys
@@ -7,10 +8,10 @@ import sys
 if __name__ == "__main__":
     # Check if all arguments are provided
     if len(sys.argv) != 4:
-       print(
-           "Usage: {} <mysql username> <mysql password> <database name>"
-           .format(sys.argv[0]))
-       sys.exit(1)
+            print(
+            "Usage: {} <mysql username> <mysql password> <database name>"
+            .format(sys.argv[0]))
+            sys.exit(1)
 
     # Get arguments
     mouse = sys.argv[1]
