@@ -6,9 +6,18 @@ import sys
 if __name__ == "__main__":
     # Check for correct number of arguments
     if len(sys.argv) != 4:
-        print('Usage: ./1-filter_states.py <mysql_username> <mysql_password> <database_name>')
+        print(
+            
+            """
+              
+            Usage:./1-filter_states.py 
+            <mysql_username> <mysql_password>
+            <database_name>
+""")
         sys.exit(1)
-
+        
+    """Get arguments"""
+     
     mouse = sys.argv[1]
     password = sys.argv[2]
     hbtn_0e_0_usa = sys.argv[3]
@@ -20,8 +29,15 @@ if __name__ == "__main__":
                          db=hbtn_0e_0_usa)
     cursor = db.cursor()
 
-    # Query to select states starting with 'N'
-    query = "SELECT * FROM states WHERE LOWER(name) LIKE 'n%' ORDER BY id ASC"
+    # Query to select states starting with 'N' (case Sensitive)
+    query = """
+
+        SELECT *
+        FROM states
+        WHERE name LIKE 'n%'
+        ORDER BY id ASC
+
+    """
 
     # Execute the query
     cursor.execute(query)
