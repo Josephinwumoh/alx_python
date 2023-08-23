@@ -4,7 +4,7 @@ import MySQLdb
 db = MySQLdb.connect(host="localhost",
                      user="root",
                      passwd="XmenSound1^100",
-                     db="hbtn_0e_0_usa")
+                     db="database")
 
 cursor = db.cursor()
 
