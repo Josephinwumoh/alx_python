@@ -7,17 +7,17 @@ if __name__ == "__main__":
     # Check for correct number of arguments
     if len(sys.argv) != 4:
         print(
-            
+     
             """
-              
-            Usage:./1-filter_states.py 
+          
+            Usage:./1-filter_states.py
             <mysql_username> <mysql_password>
             <database_name>
 """)
         sys.exit(1)
-        
+
     """Get arguments"""
-     
+ 
     mouse = sys.argv[1]
     password = sys.argv[2]
     hbtn_0e_0_usa = sys.argv[3]
