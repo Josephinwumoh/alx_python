@@ -1,11 +1,11 @@
 import MySQLdb
 
 
-"""Connect to the MySQL server"""
 db = MySQLdb.connect(host="localhost",
-                    user="man",
-                    passwd="password",
-                    db="hbtn_0e_0_usa")
+                     user="mouse",
+                     passwd="password",
+                     db="hbtn_0e_0_usa")
+
 cursor = db.cursor()
 
 cursor.execute("SELECT * FROM states ORDER BY id ASC")
