@@ -34,14 +34,15 @@ if __name__ == "__main__":
         cursor = db.cursor()
 
         # Prepare the SQL query with user input
-        query = """
+        query = (
+            """
+            SELECT *
+            FROM states
+            WHERE name LIKE BINARY
+            %s ORDER BY id ASC
+        """
+)
 
-        SELECT *
-        FROM states
-        WHERE lower(name) LIKE 'n%'
-        ORDER BY id ASC
-
-    """
         # Execute the SQL query
         cursor.execute(query, (state_name,))
 
