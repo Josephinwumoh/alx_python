@@ -40,8 +40,8 @@ if __name__ == "__main__":
             FROM states
             WHERE name LIKE BINARY
             %s ORDER BY id ASC
-        """
-)
+        """)
+
 
         # Execute the SQL query
         cursor.execute(query, (state_name,))
