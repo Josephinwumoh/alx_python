@@ -30,12 +30,13 @@ if __name__ == "__main__":
                              db=hbtn_0e_0_usa)
         cursor = db.cursor()
 
-        # Execute the query to retrieve states starting with 'N' and order by id
+        """Execute the query to retrieve states
+        starting with 'N' and order by id"""
         query = """
 
         SELECT *
         FROM states
-        WHERE name LIKE 'N%'
+        WHERE name LIKE N%
         ORDER BY id ASC;
         """
         cursor.execute(query)
