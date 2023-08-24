@@ -23,7 +23,7 @@ if __name__ == "__main__":
     hbtn_0e_0_usa = sys.argv[3]
 
     try:
-        # Connect to the MySQL server
+        """Connect to the MySQL server"""
         db = MySQLdb.connect(host="localhost",
                              port=3306, user=mouse,
                              passwd=password,
@@ -36,17 +36,17 @@ if __name__ == "__main__":
 
         SELECT *
         FROM states
-        WHERE name LIKE '%\\n'
+        WHERE name LIKE '%\n'
         ORDER BY id ASC;
         """
         cursor.execute(query)
 
-        # Fetch and display the results
+        """Fetch and display the results"""
         results = cursor.fetchall()
         for row in results:
             print(row)
 
-        # Close the cursor and the database connection
+        """Close the cursor and the database connection"""
         cursor.close()
         db.close()
 
