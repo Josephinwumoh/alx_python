@@ -27,7 +27,7 @@ if __name__ == "__main__":
     )
 
 
-    Session = sessionmaker(bind=engine)
+    Session=sessionmaker(bind=engine)
     session = Session()
 
     """Print a lists state Obtained containing the letter a with queries"""
