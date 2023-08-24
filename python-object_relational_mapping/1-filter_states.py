@@ -30,17 +30,16 @@ if __name__ == "__main__":
                              db=hbtn_0e_0_usa)
         cursor = db.cursor()
 
-        """Executing Query to get the states"""
-
-        state_name = sys.argv[4]
-
         """Execute the query to retrieve states
         starting with 'N' and order by id"""
         query = """
 
         SELECT *
-        FROM states \
-        WHERE BINARY name = '{}'""".format(state_name)
+        FROM states
+        WHERE BINARY name LIKE 'N%'
+        ORDER BY id ASC;
+        """
+
         cursor.execute(query)
 
         # Fetch and display the results
