@@ -44,7 +44,7 @@ if __name__ == "__main__":
         # Fetch and display the results
         results = cursor.fetchall()
         for row in results:
-            print(row if row[1][0] == "N")
+            print(row)
 
         # Close the cursor and the database connection
         cursor.close()
