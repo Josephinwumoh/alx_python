@@ -42,9 +42,9 @@ if __name__ == "__main__":
         cursor.execute(query)
 
         # Fetch and display the results
-        results = cursor.fetchone()
+        results = cursor.fetchall()
         for row in results:
-            print(row)
+            print(row if row[1][0] == "N")
 
         # Close the cursor and the database connection
         cursor.close()
