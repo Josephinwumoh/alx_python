@@ -21,16 +21,18 @@ if __name__ == "__main__":
 
     """Establish the engine session"""
     engine = create_engine(
-    'mysql+mysqldb://{}:{}@localhost/{}'.format(mouse, password, hbtn_0e_6_usa),
-    pool_pre_ping=True
-)
+        'mysql+mysqldb://{}:{}@localhost/{}'.format(
+            mouse, password, hbtn_0e_6_usa),
+        pool_pre_ping=True
+    )
 
 
     Session = sessionmaker(bind=engine)
     session = Session()
 
     """Print a lists state Obtained containing the letter a with queries"""
-    states_with_a = session.query(State).filter(State.name.like('%a%')).order_by(State.id).all()
+    states_with_a = session.query(State).filter(
+        State.name.like('%a%')).order_by(State.id).all()
 
     for state in states_with_a:
         print("{}: {}".format(state.id, state.name))
