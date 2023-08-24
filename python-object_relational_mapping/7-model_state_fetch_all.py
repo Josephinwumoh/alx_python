@@ -21,10 +21,9 @@ if __name__ == "__main__":
     hbtn_0e_6_usa = sys.argv[3]
 
     """Establish the engine and session"""
-    engine = create_engine(
-                        """mysql+mysqldb:
-                        //{}:{}@localhost/{}""".format(mouse, password, hbtn_0e_6_usa),
-                        pool_pre_ping=True)
+    engine = create_engine("""mysql+mysqldb://{}:{}@
+                localhost/{}""".format(mouse, password, hbtn_0e_6_usa),
+                pool_pre_ping=True)
 
     Session = sessionmaker(bind=engine)
     session = Session()
