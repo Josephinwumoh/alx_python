@@ -42,7 +42,7 @@ if __name__ == "__main__":
         cursor.execute(query)
 
         # Fetch and display the results
-        results = cursor.fetchall()
+        results = cursor.fetchone()
         for row in results:
             print(row)
 
