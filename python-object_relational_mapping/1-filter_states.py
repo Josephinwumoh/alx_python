@@ -36,7 +36,7 @@ if __name__ == "__main__":
 
         SELECT *
         FROM states
-        WHERE name LIKE '%n'
+        WHERE name LIKE 'N%'
         ORDER BY id ASC;
         """
         cursor.execute(query)
