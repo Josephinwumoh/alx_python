@@ -26,8 +26,7 @@ if __name__ == "__main__":
         pool_pre_ping=True
     )
 
-
-    Session=sessionmaker(bind=engine)
+    Session = sessionmaker(bind=engine)
     session = Session()
 
     """Print a lists state Obtained containing the letter a with queries"""
