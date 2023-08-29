@@ -17,15 +17,13 @@ def hnbn():
 
 @app.route('/c/<text>', strict_slashes=False)
 def c_text(text):
-    text = text.replace('_', ' ')
-    return f"C {text}"
+    return f"C {text.replace('_', ' ')}"
 
 
 @app.route('/python/', defaults={'text': 'is cool'}, strict_slashes=False)
 @app.route('python/<text>', strict_slashes=False)
 def python_text(text):
-    text = text.replace('_', ' ')
-    return f"python {text}"
+    return f"python {text.replace('_', ' ')}"
 
 
 if __name__ == '__main__':
