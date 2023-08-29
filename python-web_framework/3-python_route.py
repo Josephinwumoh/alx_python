@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Display Python is cool! """
+"""Display Python is cool!."""
 from flask import Flask
 
 app = Flask(__name__)
