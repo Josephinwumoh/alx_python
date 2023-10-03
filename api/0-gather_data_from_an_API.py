@@ -1,17 +1,16 @@
 import requests
-
 import sys
 
-def my_todo_list(Employee_id):
+def my_todo_list(employee_id):
     """Defining the API endpoint for employee"""
-    Employee_url =  f"https://jsonplaceholder.typicode.com/users/{my_todo_list}"
-    todo_url = f"https://jsonplaceholder.typicode.com/users/{my_todo_list}/todos"
+    employee_url =  f"https://jsonplaceholder.typicode.com/users/{employee_id}"
+    todo_url = f"https://jsonplaceholder.typicode.com/users/{employee_id}/todos"
 
     try:
         """ Getting the employee details"""
-        Employee_response = requests.get(Employee_url)
-        Employee_data = Employee_response.json()
-        Employee_name = Employee_data.get("name")
+        employee_response = requests.get(employee_url)
+        employee_data = employee_response.json()
+        employee_name = employee_data.get("name")
 
         """Getting Todo list"""
         todo_response = requests.get(todo_url)
@@ -23,7 +22,7 @@ def my_todo_list(Employee_id):
         num_completed = len(completed_tasks)
 
         """Get output results"""
-        print(f"Employee {Employee_name} is done with tasks({num_completed}/{total_tasks}):")
+        print(f"Employee {employee_name} is done with tasks({num_completed}/{total_tasks}):")
         for task in completed_tasks:
             print(f"\t{task['title']}")
 
@@ -33,8 +32,8 @@ def my_todo_list(Employee_id):
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("Usage: python3 0-gather_data_from_an_API.py <Employee_id>")
+        print("Usage: python3 0-gather_data_from_an_API.py <employee_id>")
         sys.exit(1)
 
-    Employee_id = int(sys.argv[1])
-    my_todo_list(Employee_id)
+    employee_id = int(sys.argv[1])
+    my_todo_list(employee_id)
