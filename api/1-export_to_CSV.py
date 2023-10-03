@@ -1,6 +1,7 @@
 import requests
 import csv
 import sys
+import os
 
 
 def my_todo_list(employee_id):
@@ -46,4 +47,10 @@ if __name__ == "__main__":
         sys.exit(1)
 
     employee_id = int(sys.argv[1])
-    my_todo_list(employee_id)
+
+    """Checking if CSV file exists"""
+    filename = f"{employee_id}.csv"
+    if os.path.exists(filename):
+        my_todo_list(employee_id)
+    else:
+        print(f"CSV file for employee {employee_id} does not exist.")
