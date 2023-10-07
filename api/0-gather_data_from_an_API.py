@@ -1,4 +1,7 @@
+"""Gather data from an API"""
+
 import requests
+
 import sys
 
 def my_todo_list(employee_id):
