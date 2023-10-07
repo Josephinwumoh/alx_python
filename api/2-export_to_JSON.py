@@ -76,6 +76,3 @@ def main():
         """Exporting data to JSON"""
         export_to_json(employee_id, employee_name, todo_data)
         print(f"Data exported to {employee_id}.json")
-
-if __name__ == "__main__":
-    main()
