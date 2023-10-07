@@ -1,42 +1,34 @@
 """Gather data from an API"""
 
 import requests
-
 import sys
 
-def my_todo_list(employee_id):
-    """Defining the API endpoint for employee"""
-    employee_url =  f"https://jsonplaceholder.typicode.com/users/{employee_id}"
-    todo_url = f"https://jsonplaceholder.typicode.com/users/{employee_id}/todos"
+def find_data(id):
+    data_url =  f"https://jsonplaceholder.typicode.com/users/{id}"
+    todo_url = f"https://jsonplaceholder.typicode.com/users/{id}/todos"
+    result = 0
 
-    try:
-        """ Getting the employee details"""
-        employee_response = requests.get(employee_url)
-        employee_data = employee_response.json()
-        employee_name = employee_data.get("name")
+    """ Get the data """
+    data = requests.get(data_url)
+    todo = requests.get(todo_url)
 
-        """Getting Todo list"""
-        todo_response = requests.get(todo_url)
-        todo_list = todo_response.json()
+    """ Parse the data """
+    json_result = data.json()
+    employee_name = json_result["name"]
+    json_todo = todo.json()
+    complete_tasks = len(json_todo)
 
-        """Getting number of completed items"""
-        completed_tasks = [task for task in todo_list if task["completed"]]
-        total_tasks = len(todo_list)
-        num_completed = len(completed_tasks)
+    """ Show the completed tasks"""
+    J = []
+    for task in todo.json():
+        if task["completed"]:
+            result += 1
+            J.append(task["title"])
 
-        """Get output results"""
-        print(f"Employee {employee_name} is done with tasks({num_completed}/{total_tasks}):")
-        for task in completed_tasks:
-            print(f"\t{task['title']}")
-
-    except requests.exceptions.RequestException as e:
-        print(f"Error: {e}")
-        sys.exit(1)
+    print(f"Employee {employee_name} is done with tasks ({result}/{complete_tasks}):")
+    for task_title in J:
+        print(f"\t{task_title}")
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: python3 0-gather_data_from_an_API.py <employee_id>")
-        sys.exit(1)
-
-    employee_id = int(sys.argv[1])
-    my_todo_list(employee_id)
+    id = sys.argv[1]
+    find_data(id)
