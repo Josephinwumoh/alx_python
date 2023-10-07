@@ -2,7 +2,7 @@ import requests
 import sys
 
 def gather_todo_progress(employee_id):
-    # Define the API endpoints for employee details and TODO list
+    """Define the API endpoints for employee details and TODO list"""
     employee_url = f"https://jsonplaceholder.typicode.com/users/{employee_id}"
     todo_url = f"https://jsonplaceholder.typicode.com/users/{employee_id}/todos"
 
