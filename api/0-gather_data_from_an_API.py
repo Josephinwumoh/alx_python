@@ -1,34 +1,39 @@
-#!/usr/bin/python3
-
 import requests
 import sys
 
-def find_data(id):
-    data_url =  f"https://jsonplaceholder.typicode.com/users/{id}"
-    todo_url = f"https://jsonplaceholder.typicode.com/users/{id}/todos"
-    result = 0
+def gather_todo_progress(employee_id):
+    # Define the API endpoints for employee details and TODO list
+    employee_url = f"https://jsonplaceholder.typicode.com/users/{employee_id}"
+    todo_url = f"https://jsonplaceholder.typicode.com/users/{employee_id}/todos"
 
-    """ Get the data """
-    data = requests.get(data_url)
-    todo = requests.get(todo_url)
+    try:
+        # Fetch employee details
+        employee_response = requests.get(employee_url)
+        employee_data = employee_response.json()
+        employee_name = employee_data["name"]
 
-    """ Parse the data """
-    json_result = data.json()
-    employee_name = json_result["name"]
-    json_todo = todo.json()
-    complete_tasks = len(json_todo)
+        # Fetch TODO list
+        todo_response = requests.get(todo_url)
+        todo_list = todo_response.json()
 
-    """ Show the completed tasks"""
-    J = []
-    for task in todo.json():
-        if task["completed"]:
-            result += 1
-            J.append(task["title"])
+        # Calculate progress
+        total_tasks = len(todo_list)
+        completed_tasks = sum(1 for task in todo_list if task["completed"])
 
-    print(f"Employee {employee_name} is done with tasks ({result}/{complete_tasks}):")
-    for task_title in J:
-        print(f"\t{task_title}")
+        # Display progress in the required format
+        print(f"Employee {employee_name} is done with tasks({completed_tasks}/{total_tasks}):")
+        for task in todo_list:
+            if task["completed"]:
+                print(f"    {task['title']}")
+
+    except requests.exceptions.RequestException as e:
+        print(f"Error: {e}")
+        sys.exit(1)
 
 if __name__ == "__main__":
-    id = sys.argv[1]
-    find_data(id)
+    if len(sys.argv) != 2:
+        print("Usage: python3 0-gather_data_from_an_API.py <employee_id>")
+        sys.exit(1)
+
+    employee_id = int(sys.argv[1])
+    gather_todo_progress(employee_id)
