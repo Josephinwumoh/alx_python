@@ -1,18 +1,18 @@
 """ Exporting to JSON """
 
-import requests
 import json
+import requests
 import sys
 
-def export_to_json(id):
+def export_to_json(employee_id):
     # Define the API endpoints for employee details and TODO list
-    id_url = f"https://jsonplaceholder.typicode.com/users/{id}"
-    todo_url = f"https://jsonplaceholder.typicode.com/users/{id}/todos"
+    employee_url = f"https://jsonplaceholder.typicode.com/users/{employee_id}"
+    todo_url = f"https://jsonplaceholder.typicode.com/users/{employee_id}/todos"
 
     try:
         # Fetch employee details
-        response_id = requests.get(id_url)
-        employee_data = response_id.json()
+        employee_response = requests.get(employee_url)
+        employee_data = employee_response.json()
         user_id = employee_data["id"]
         username = employee_data["username"]
 
@@ -20,7 +20,7 @@ def export_to_json(id):
         todo_response = requests.get(todo_url)
         todo_list = todo_response.json()
 
-        """ Prepare the completed task """
+        # Prepare data in JSON format
         user_data = {
             str(user_id): [{"task": task["title"], "completed": task["completed"], "username": username} for task in todo_list]
         }
@@ -37,8 +37,8 @@ def export_to_json(id):
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("Usage: python3 2-export_to_JSON.py <id>")
+        print("Usage: python3 2-export_to_JSON.py <employee_id>")
         sys.exit(1)
 
-    id = int(sys.argv[1])
-    export_to_json(id)
+    employee_id = int(sys.argv[1])
+    export_to_json(employee_id)
