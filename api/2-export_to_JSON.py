@@ -14,7 +14,7 @@ def export_to_json(employee_id):
         employee_response = requests.get(employee_url)
         employee_data = employee_response.json()
         USER_ID= employee_data["id"]
-        username = employee_data["username"]
+        USERNAME = employee_data["username"]
 
         # Fetch TODO list
         todo_response = requests.get(todo_url)
@@ -22,7 +22,7 @@ def export_to_json(employee_id):
 
         # Prepare data in JSON format
         user_data = {
-            str(USER_ID): [{"task": task["title"], "completed": task["completed"], "username": username} for task in todo_list]
+            str(USER_ID): [{"task": task["TASK_TITLE"], "completed": task["TASK_COMPLETED_STATUS"], "username": USERNAME} for task in todo_list]
         }
 
         # Create a JSON file for the user
@@ -34,11 +34,3 @@ def export_to_json(employee_id):
     except requests.exceptions.RequestException as e:
         print(f"Error: {e}")
         sys.exit(1)
-
-if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: python3 2-export_to_JSON.py <employee_id>")
-        sys.exit(1)
-
-    employee_id = int(sys.argv[1])
-    export_to_json(employee_id)
