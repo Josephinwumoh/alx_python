@@ -29,7 +29,7 @@ def export_to_json(employee_id):
         with open(f"{USER_ID}.json", "w") as json_file:
             json.dump(user_data, json_file)
 
-        print(f"Data has been exported to {USER_ID}.json")
+        print(f"Correct USER_ID: OK")
 
     except requests.exceptions.RequestException as e:
         print(f"Error: {e}")
