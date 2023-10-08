@@ -22,11 +22,11 @@ def export_to_json(employee_id):
 
         # Prepare data in JSON format
         user_data = {
-            str(user_id): [{"task": task["title"], "completed": task["completed"], "username": username} for task in todo_list]
+            str(USER_ID): [{"task": task["title"], "completed": task["completed"], "username": username} for task in todo_list]
         }
 
         # Create a JSON file for the user
-        with open(f"{user_id}.json", "w") as json_file:
+        with open(f"{USER_ID}.json", "w") as json_file:
             json.dump(user_data, json_file)
 
         print(f"Data has been exported to {USER_ID}.json")
