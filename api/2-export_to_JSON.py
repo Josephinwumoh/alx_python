@@ -13,7 +13,7 @@ def export_to_json(employee_id):
         # Fetch employee details
         employee_response = requests.get(employee_url)
         employee_data = employee_response.json()
-        user_id = employee_data["id"]
+        USER_ID= employee_data["id"]
         username = employee_data["username"]
 
         # Fetch TODO list
@@ -29,7 +29,7 @@ def export_to_json(employee_id):
         with open(f"{user_id}.json", "w") as json_file:
             json.dump(user_data, json_file)
 
-        print(f"Data has been exported to {user_id}.json")
+        print(f"Data has been exported to {USER_ID}.json")
 
     except requests.exceptions.RequestException as e:
         print(f"Error: {e}")
