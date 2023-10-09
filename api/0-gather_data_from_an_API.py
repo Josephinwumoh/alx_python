@@ -26,7 +26,7 @@ def Etodo(id):
         print(f"Employee {employee_name} is done with tasks({completed_tasks}/{total_tasks}):")
         for task in todo_list:
             if task["completed"]:
-                print(f"    {task['title']}")
+                print(f" \t {task['title']}")
 
     except requests.exceptions.RequestException as e:
         print(f"Error: {e}")
