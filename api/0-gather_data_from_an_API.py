@@ -1,4 +1,6 @@
-""" Gathering data from an API """
+""" Gathering data from an API using
+a virtual environment.
+"""
 
 import requests
 import sys
