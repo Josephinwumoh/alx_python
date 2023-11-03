@@ -1,36 +1,50 @@
-""" Exporting to JSON """
-
-import json
+"""This program fetches employee data and exports it to both CSV and JSON format
+"""
+import json  # Import the json module
 import requests
 import sys
 
-def export_to_json(employee_id):
-    # Define the API endpoints for employee details and TODO list
-    employee_url = f"https://jsonplaceholder.typicode.com/users/{employee_id}"
-    todo_url = f"https://jsonplaceholder.typicode.com/users/{employee_id}/todos"
+def main():
+    employee_id = sys.argv[1]
 
-    try:
-        # Fetch employee details
-        employee_response = requests.get(employee_url)
-        employee_data = employee_response.json()
-        USER_ID= employee_data["id"]
-        USERNAME = employee_data["username"]
+    # Employee data
+    employee_url = f'https://jsonplaceholder.typicode.com/users/{employee_id}'
+    employee_response = requests.get(employee_url)
+    if employee_response.status_code != 200:
+        print(f"Employee with ID {employee_id} not found.")
+        return
+    employee_data = employee_response.json()
 
-        # Fetch TODO list
-        todo_response = requests.get(todo_url)
-        todo_list = todo_response.json()
+    # Fetching todos data
+    todos_url = f'https://jsonplaceholder.typicode.com/users/{employee_id}/todos'
+    todos_response = requests.get(todos_url)
+    if todos_response.status_code != 200:
+        print(f"Failed to fetch todos for user {employee_data['name']}.")
+        return
+    todos_data = todos_response.json()
 
-        # Prepare data in JSON format
-        user_data = {
-            str(USER_ID): [{"task": task["TASK_TITLE"], "completed": task["TASK_COMPLETED_STATUS"], "username": USERNAME} for task in todo_list]
+    # Creating a list to store task records
+    task_records = []
+
+    for task in todos_data:
+        task_record = {
+            "task": task['title'],
+            "completed": task['completed'],
+            "username": employee_data['username']
         }
+        task_records.append(task_record)
 
-        # Create a JSON file for the user
-        with open(f"{USER_ID}.json", "w") as json_file:
-            json.dump(user_data, json_file)
+    # Creating a dictionary with the user ID as the key and the list of task records as the value
+    export_data = {
+        employee_id: task_records
+    }
 
-        print(f"Correct USER_ID: OK")
+    # Exporting to JSON file
+    json_file = f"{employee_id}.json"
+    with open(json_file, 'w') as jsonfile:
+        json.dump(export_data, jsonfile, indent=4)  # Use json.dump to write data in JSON format
 
-    except requests.exceptions.RequestException as e:
-        print(f"Error: {e}")
-        sys.exit(1)
+    print(f"Data exported to {json_file}.")
+
+if __name__ == "__main":
+    main()
