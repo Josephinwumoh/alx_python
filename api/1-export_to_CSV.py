@@ -1,39 +1,37 @@
+#!/usr/bin/python3
+"""
+Check student .CSV output of user information
+"""
+
 import csv
 import requests
 import sys
 
-def main():
-    if len(sys.argv) != 2:
-        print("Usage: python script.py <employee_id>")
-        return
+users_url = "https://jsonplaceholder.typicode.com/users?id="
+todos_url = "https://jsonplaceholder.typicode.com/todos"
 
-    employee_id = sys.argv[1]
 
-    # Employee data
-    employee_url = f'https://jsonplaceholder.typicode.com/users/{employee_id}'
-    employee_response = requests.get(employee_url)
-    if employee_response.status_code != 200:
-        print(f"Employee with ID {employee_id} not found.")
-        return
-    employee_data = employee_response.json()
+def user_info(id):
+    """ Check CSV formatting """
 
-    # Fetching todos data
-    todos_url = f'https://jsonplaceholder.typicode.com/todos?userId={employee_id}'
-    todos_response = requests.get(todos_url)
-    if todos_response.status_code != 200:
-        print(f"Failed to fetch todos for user {employee_data['name']}.")
-        return
-    todos_data = todos_response.json()
+    response = requests.get(todos_url).json()
+    with open(str(id) + ".csv", 'r') as f:
+        output = f.read().strip()
+        count = 0
+        flag = 0
+        for i in response:
+            if i['userId'] == id:
+                url = users_url + str(i['userId'])
+                usr_resp = requests.get(url).json()
+                line = '"' + str(i['userId']) + '","' + usr_resp[0]['username'] + '","' + str(i['completed']) + '","' + i['title'] + '"'
+                count += 1
+                if not line in output:
+                    print("Task {} Formatting: Incorrect".format(count))
+                    flag = 1
 
-    # Exporting to CSV file
-    csv_file = f"{employee_id}.csv"
-    with open(csv_file, 'w', newline='') as csvfile:
-        csv_writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
-        csv_writer.writerow(["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"])
-        for task in todos_data:
-            csv_writer.writerow([employee_id], employee_data['username'], task['completed'], task['title'])
+    if flag == 0:
+        print("Formatting: OK")
 
-    print(f"Data exported to {csv_file}.")
 
-if __name__ == "__main":
-    main()
+if __name__ == "__main__":
+    user_info(int(sys.argv[1]))
