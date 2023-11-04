@@ -26,7 +26,7 @@ def user_info(id):
                 line = '"' + str(i['userId']) + '","' + usr_resp[0]['username'] + '","' + str(i['completed']) + '","' + i['title'] + '"'
                 count += 1
                 if not line in output:
-                    print("Task {} Formatting: Incorrect".format(count))
+                    print("Task {} Formatting: OK".format(count))
                     flag = 1
 
     if flag == 0:
